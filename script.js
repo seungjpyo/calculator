@@ -55,8 +55,8 @@ function inputOperator(e) {
     if (operatorData === '') cashedData = data;
     if (operatorData === '+') cashedData = (Number(cashedData) + Number(data)).toString();
     if (operatorData === '-') cashedData = (cashedData - data).toString();
-    if (operatorData === 'x' || operatorData === '*') cashedData = (cashedData * data).toString();
-    if (operatorData === '÷' || operatorData === '/') cashedData = (cashedData / data).toString();
+    if (operatorData === 'x') cashedData = (cashedData * data).toString();
+    if (operatorData === '÷') cashedData = (cashedData / data).toString();
     if (operatorData === '^') cashedData = (Math.pow(cashedData, data)).toString();
     operatorData = e.target.textContent;
     data = '';
@@ -69,8 +69,8 @@ function inputEqual() {
     display2.textContent = cashedData + ' ' + operatorData + ' ' + data;
     if (operatorData === '+') data = (Number(cashedData) + Number(data)).toString();
     if (operatorData === '-') data = (cashedData - data).toString();
-    if (operatorData === 'x' || operatorData === '*') data = (cashedData * data).toString();
-    if (operatorData === '÷' || operatorData === '/') data = (cashedData / data).toString();
+    if (operatorData === 'x') data = (cashedData * data).toString();
+    if (operatorData === '÷') data = (cashedData / data).toString();
     if (operatorData === '^') data = (Math.pow(cashedData, data)).toString();
     cashedData = '';
     operatorData = '';
@@ -111,10 +111,12 @@ function keyInputOperator(key) {
     if (operatorData === '') cashedData = data;
     if (operatorData === '+') cashedData = (Number(cashedData) + Number(data)).toString();
     if (operatorData === '-') cashedData = (cashedData - data).toString();
-    if (operatorData === 'x' || operatorData === '*') cashedData = (cashedData * data).toString();
-    if (operatorData === '÷' || operatorData === '/') cashedData = (cashedData / data).toString();
+    if (operatorData === 'x') cashedData = (cashedData * data).toString();
+    if (operatorData === '÷') cashedData = (cashedData / data).toString();
     if (operatorData === '^') cashedData = (Math.pow(cashedData, data)).toString();
     operatorData = key;
+    if (operatorData === '*') operatorData = 'x';
+    if (operatorData === '/') operatorData = '÷';
     data = '';
     display.textContent = '0';
     display2.textContent = cashedData + ' ' + operatorData;
